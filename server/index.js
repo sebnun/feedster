@@ -1,26 +1,36 @@
-const express = require("express")
-const app = express()
+const express = require("express");
+const { fetchNewsItems } = require("./utils");
 
-const PORT = 5000
-const API_VERSION = "1"
+const PORT = 5000;
+const API_VERSION = "1";
 
-const mock = [
+const app = express();
+
+// TODO: some feed items have a UUID as GUID, others use URL as GUID
+// Can an item with an UUID appear with a GUID of an URL also?
+// If so, they would not be globally unique
+
+/* Example response
+[
   {
-    id: "someguid",
-    title: "Some title",
-    url: "some url",
+    guid: "7131e4ba-ad02-4702-9730-4b2a7a0358a9",
+    title: "Some title 1",
+    link: "https://dn.se/1,
   },
   {
-    id: "someguid2",
-    title: "Some title2",
-    url: "some url3",
+    guid: "https://dn.se/2",
+    title: "Some title 2",
+    link: "https://dn.se/2",
   },
-];
+]
+*/
 
 app.get(`/v${API_VERSION}/newsitems`, (req, res) => {
-  res.json(mock)
-})
+  fetchNewsItems()
+    .then((values) => res.json(values))
+    .catch(() => res.sendCode(500));
+});
 
 app.listen(PORT, () => {
-  console.log(`Server listening at http://localhost:${PORT}`)
-})
+  console.log(`Server listening at http://localhost:${PORT}`);
+});
