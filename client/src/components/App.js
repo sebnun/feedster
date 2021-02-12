@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchNewsItems } from "./endpoints_v1";
+import { fetchNewsItems } from "../api/endpoints_v1";
 import Error from "./Error";
 import Loading from "./Loading";
 
