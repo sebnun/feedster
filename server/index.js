@@ -28,7 +28,7 @@ const app = express();
 app.get(`/v${API_VERSION}/newsitems`, (req, res) => {
   fetchNewsItems()
     .then((values) => res.json(values))
-    .catch(() => res.sendCode(500));
+    .catch(() => res.sendStatus(500));
 });
 
 app.listen(PORT, () => {
