@@ -30,10 +30,12 @@ const App = () => {
       </header>
 
       <nav>
+        {!newsItems.length && <h3>No items to show</h3>}
+
         <ol>
           {newsItems.map((item) => (
             <li key={item.guid}>
-              <a href={item.link}>{item.title}</a>
+              <a href={item.link} target="_blank" rel="noreferrer">{item.title}</a>
             </li>
           ))}
         </ol>
