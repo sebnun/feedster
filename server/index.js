@@ -1,7 +1,7 @@
 const express = require("express");
 const { fetchNewsItems } = require("./utils");
 
-const PORT = 5000;
+const PORT = 5004;
 const API_VERSION = "1";
 
 const app = express();
