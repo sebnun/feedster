@@ -5,5 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #fefefe;
 }
+
+main {
+  padding: 50px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  color:cadetblue;
+} 
 
